@@ -1,21 +1,22 @@
-import {deposit, Withdraw} from "../../store/Amount/Action"
-import {SelectCurrentAmount} from "../../store/Amount/Reducer"
-import {connect} from "react-redux"
+import {deposit, Withdraw} from "../../store/Amount2/Action2"
+import { useSelector, useDispatch } from "react-redux"
 
-const mapStateToProps = (state) => {
+/*const mapStateToProps = (state) => {
     return {
         amount : SelectCurrentAmount(state)
     }
-}
+}*/
 
-const Counter = ({amount, deposit, Withdraw}) => {
+const Counter = () => {
+    const amount = useSelector(state => state.amount)
+    const dispatch = useDispatch()
     return (
         <div>
             <h1>{amount}</h1>
-            <button onClick={() => deposit()}>Deposite</button>
-            <button onClick={() => Withdraw()}>Withdraw</button>
+            <button onClick={() => dispatch(deposit)}>Deposite</button>
+            <button onClick={() => dispatch(Withdraw)}>Withdraw</button>
         </div>
     )
 }
 
-export default connect(mapStateToProps, {deposit, Withdraw}) (Counter)
+export default Counter

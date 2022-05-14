@@ -1,8 +1,8 @@
 import {createStore , combineReducers } from 'redux'
-import amountReducer from "./Amount/Reducer"
+import amountReducer from "./Amount2/Amount2"
 
 const reducers = combineReducers({
-    amountReducer
+    amount: amountReducer
 })
 
 const store = createStore(reducers,
